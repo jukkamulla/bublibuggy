@@ -18,6 +18,30 @@ header {
     line-height: 100px;
 }
 
+.number {
+    font-size: 100px;
+    color: crimson;
+    font-family: monospace;
+    font-weight: bold;
+    float: left;
+    width: 120px;
+    padding: 5px;
+    margin-left: 100px;
+    margin-top: 200px;
+}
+
+.counter {
+    font-size: 100px;
+    color: forestgreen;
+    font-family: monospace;
+    font-weight: bold;
+    float: right;
+    width: 120px;
+    padding: 5px;
+    margin-right: 100px;
+    margin-top: 200px;
+}
+
 .bubble {
     width: 80px;
     height: 80px;
@@ -39,6 +63,10 @@ footer {
     background-color: dimgray;
     height: 20px;
     text-align: center;
+    font-size: 18px;
+    font-family: monospace;
+    color: darkgrey;
+    font-weight: bold;
     margin-top: 40px;
     padding: 5px;
     position: fixed;
