@@ -16,3 +16,19 @@ for (var i=0; i < dimension; i++) {
         bubbleContainer.appendChild(newDiv);
     }
 }
+
+function randomNumber() {
+    var number = Math.floor((Math.random() * 100) + 1);
+    return number;
+}
+
+var setGoalNumber = function () {
+    var number = randomNumber();
+    if (number <10 ){
+        number = 10;
+    }
+    var numberElement = document.getElementsByClassName("number")[0];
+    numberElement.innerHTML = number.toString();
+};
+
+setGoalNumber();
