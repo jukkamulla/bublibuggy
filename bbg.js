@@ -32,3 +32,28 @@ var setGoalNumber = function () {
 };
 
 setGoalNumber();
+
+function setValueOfBubbles () {
+    var bubbles = document.getElementsByClassName("bubble");
+    for (var i = 0; i < bubbles.length; i++) {
+        var randomNumber = Math.floor((Math.random() * 100) + 1);
+        var bubbleDiv = bubbles[i];
+        var bubbleP = bubbleDiv.firstChild;
+        bubbleP.innerHTML = randomNumber;
+        if (randomNumber < 20 || randomNumber > 60) {
+            bubbleP.classList.remove("expression-visible");
+            bubbleDiv.classList.remove("bubble-visible");
+            bubbleP.classList.add("hided-expression");
+            bubbleDiv.classList.add("hided-bubble");
+        } else {
+            bubbleP.classList.remove("hided-expression");
+            bubbleDiv.classList.remove("hided-bubble");
+            bubbleP.classList.add("expression-visible");
+            bubbleDiv.classList.add("bubble-visible");
+        }
+    }
+}
+
+setInterval(setValueOfBubbles, 2000);
+
+//setValueOfBubbles();
