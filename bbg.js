@@ -3,17 +3,18 @@ var bubbleContainer = document.getElementsByClassName("bubble-container")[0];
 var dimension = 5;
 var value = 0;
 
-for (var i=0; i < dimension; i++) {
-    for (var j=0; j < dimension; j++) {
-        value++;
-        var newDiv = document.createElement('div');
-        newDiv.classList.add("bubble");
-        newDiv.classList.add("bubble-row");
-        var valueElement = document.createElement('p');
-        valueElement.innerHTML = value.toString();
-        valueElement.classList.add("expression");
-        newDiv.appendChild(valueElement);
-        bubbleContainer.appendChild(newDiv);
+function buildGameTable() {
+    for (var i = 0; i < dimension; i++) {
+        for (var j = 0; j < dimension; j++) {
+            value++;
+            var newDiv = document.createElement('div');
+            newDiv.classList.add("bubble");
+            newDiv.classList.add("bubble-row");
+            var valueElement = document.createElement('p');
+            valueElement.classList.add("expression");
+            newDiv.appendChild(valueElement);
+            bubbleContainer.appendChild(newDiv);
+        }
     }
 }
 
@@ -33,10 +34,13 @@ var setGoalNumber = function () {
 
 setGoalNumber();
 
-function setValueOfBubbles () {
+
+
+
+function setValueOfBubbles() {
     var bubbles = document.getElementsByClassName("bubble");
     for (var i = 0; i < bubbles.length; i++) {
-        var randomNumber = Math.floor((Math.random() * 100) + 1);
+        var randomNumber = Math.floor((Math.random() * 99) + 1);
         var bubbleDiv = bubbles[i];
         var bubbleP = bubbleDiv.firstChild;
         bubbleP.innerHTML = randomNumber;
@@ -54,6 +58,10 @@ function setValueOfBubbles () {
     }
 }
 
-setInterval(setValueOfBubbles, 2000);
+function play() {
+    setInterval(setValueOfBubbles, 2000);
+    buildGameTable();
+    var welcomeText = document.getElementById("welcome-text");
+    welcomeText.style.display = "none";
+}
 
-//setValueOfBubbles();
