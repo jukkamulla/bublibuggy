@@ -18,7 +18,7 @@ header {
     line-height: 100px;
 }
 
-.number {
+#goal {
     font-size: 100px;
     color: crimson;
     float: left;
@@ -28,7 +28,7 @@ header {
     margin-top: 200px;
 }
 
-.counter {
+#counter {
     font-size: 100px;
     color: forestgreen;
     float: right;

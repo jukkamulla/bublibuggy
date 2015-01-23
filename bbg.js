@@ -25,26 +25,23 @@ function randomNumber() {
 
 var setGoalNumber = function () {
     var number = randomNumber();
-    if (number <10 ){
-        number = 10;
+    if (number <30 ){
+        number = 30;
     }
-    var numberElement = document.getElementsByClassName("number")[0];
+    var numberElement = document.getElementById("goal");
     numberElement.innerHTML = number.toString();
 };
 
 setGoalNumber();
 
-
-
-
 function setValueOfBubbles() {
     var bubbles = document.getElementsByClassName("bubble");
     for (var i = 0; i < bubbles.length; i++) {
-        var randomNumber = Math.floor((Math.random() * 99) + 1);
+        var randomNumber = Math.floor((Math.random() * 30) + 1);
         var bubbleDiv = bubbles[i];
         var bubbleP = bubbleDiv.firstChild;
         bubbleP.innerHTML = randomNumber;
-        if (randomNumber < 20 || randomNumber > 60) {
+        if (randomNumber < 1 || randomNumber > 20) {
             bubbleP.classList.remove("expression-visible");
             bubbleDiv.classList.remove("bubble-visible");
             bubbleP.classList.add("hided-expression");
@@ -63,5 +60,36 @@ function play() {
     buildGameTable();
     var welcomeText = document.getElementById("welcome-text");
     welcomeText.style.display = "none";
+
 }
 
+document.addEventListener('click', function(event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement;
+    var elementOpacity = window.getComputedStyle(target, null).getPropertyValue('opacity');
+    var text = target.textContent || text.innerText;
+
+    if (elementOpacity > 0) {
+        var counterElement = document.getElementById("counter");
+        var goalNumber = parseInt(document.getElementById("goal").innerHTML);
+        var counterNumber = parseInt(counterElement.innerHTML);
+        if (isNaN(counterNumber)) {
+            counterNumber = 0;
+        }
+        var clickedNumber = parseInt(text);
+        if (isNaN(clickedNumber)) {
+            clickedNumber = 0;
+        }
+        var newCounterValue = counterNumber + clickedNumber;
+        if (newCounterValue > goalNumber) {
+            newCounterValue = 0;
+        } else if (newCounterValue === goalNumber) {
+            clearInterval(1);
+            var container = document.getElementById('container');
+            container.style.display = 'none';
+            console.log("Wow you are the winner!!!");
+        }
+        counterElement.innerHTML = (newCounterValue).toString();
+    }
+
+}, false);
