@@ -19,7 +19,7 @@ function buildGameTable() {
 }
 
 function randomNumber() {
-    var number = Math.floor((Math.random() * 100) + 1);
+    var number = Math.floor((Math.random() * 99) + 1);
     return number;
 }
 
@@ -37,11 +37,11 @@ setGoalNumber();
 function setValueOfBubbles() {
     var bubbles = document.getElementsByClassName("bubble");
     for (var i = 0; i < bubbles.length; i++) {
-        var randomNumber = Math.floor((Math.random() * 30) + 1);
+        var randomNumber = parseInt(randomBetween(-50, 50));
         var bubbleDiv = bubbles[i];
         var bubbleP = bubbleDiv.firstChild;
         bubbleP.innerHTML = randomNumber;
-        if (randomNumber < 1 || randomNumber > 20) {
+        if (randomNumber < -20 || randomNumber > 20) {
             bubbleP.classList.remove("expression-visible");
             bubbleDiv.classList.remove("bubble-visible");
             bubbleP.classList.add("hided-expression");
@@ -52,6 +52,14 @@ function setValueOfBubbles() {
             bubbleP.classList.add("expression-visible");
             bubbleDiv.classList.add("bubble-visible");
         }
+    }
+}
+
+function randomBetween(min, max) {
+    if (min < 0) {
+        return min + Math.random() * (Math.abs(min)+max);
+    }else {
+        return min + Math.random() * max;
     }
 }
 
