@@ -76,6 +76,9 @@ document.addEventListener('click', function(event) {
     var target = event.target || event.srcElement;
     var elementOpacity = window.getComputedStyle(target, null).getPropertyValue('opacity');
     var text = target.textContent || text.innerText;
+    if (target.className ==! "expression expression-visible" && target.className ==! "bubble bubble-row bubble-visible") {
+        return false;
+    }
 
     if (elementOpacity > 0) {
         var counterElement = document.getElementById("counter");
