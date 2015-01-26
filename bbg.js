@@ -52,6 +52,13 @@ function setValueOfBubbles() {
             bubbleP.classList.add("expression-visible");
             bubbleDiv.classList.add("bubble-visible");
         }
+        if (randomNumber < 0) {
+            bubbleP.style.color = "#FF978E";
+        } else if (randomNumber === 0) {
+            bubbleP.style.color = "#CECECE";
+        } else {
+            bubbleP.style.color = "#76FF7B";
+        }
     }
 }
 
@@ -68,7 +75,6 @@ function play() {
     buildGameTable();
     var welcomeText = document.getElementById("welcome-text");
     welcomeText.style.display = "none";
-
 }
 
 document.addEventListener('click', function(event) {
