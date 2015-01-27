@@ -53,11 +53,11 @@ function setValueOfBubbles() {
             bubbleDiv.classList.add("bubble-visible");
         }
         if (randomNumber < 0) {
-            bubbleP.style.color = "#FF978E";
+            bubbleP.style.color = "#FFDAC9";
         } else if (randomNumber === 0) {
             bubbleP.style.color = "#CECECE";
         } else {
-            bubbleP.style.color = "#76FF7B";
+            bubbleP.style.color = "#CAFFC5";
         }
     }
 }
