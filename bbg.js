@@ -32,7 +32,7 @@ var setGoalNumber = function () {
     numberElement.innerHTML = number.toString();
 };
 
-setGoalNumber();
+buildGameTable();
 
 function setValueOfBubbles() {
     var bubbles = document.getElementsByClassName("bubble");
@@ -71,8 +71,10 @@ function randomBetween(min, max) {
 }
 
 function play() {
+    var container = document.getElementById('container');
+    container.style.display = 'block';
     setInterval(setValueOfBubbles, 2000);
-    buildGameTable();
+    setGoalNumber();
     var welcomeText = document.getElementById("welcome-text");
     welcomeText.style.display = "none";
 }
@@ -104,7 +106,11 @@ document.addEventListener('click', function(event) {
             clearInterval(1);
             var container = document.getElementById('container');
             container.style.display = 'none';
-            console.log("Wow you are the winner!!!");
+            var outcome = document.getElementById("outcome");
+            outcome.style.visibility = "visible";
+            var replay = document.getElementById("replay");
+            replay.style.visibility = "visible";
+
         }
         counterElement.innerHTML = (newCounterValue).toString();
     }

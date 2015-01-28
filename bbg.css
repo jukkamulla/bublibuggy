@@ -103,3 +103,7 @@ footer {
     width: 100%;
 }
 
+#outcome-text {
+    visibility: hidden;
+}
+
