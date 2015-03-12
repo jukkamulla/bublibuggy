@@ -19,18 +19,17 @@ function buildGameTable() {
 }
 
 function randomNumber() {
-    var number = Math.floor((Math.random() * 99) + 1);
-    return number;
+    return Math.floor((Math.random() * 99) + 1);
 }
 
-var setGoalNumber = function () {
+function setGoalNumber() {
     var number = randomNumber();
     if (number <30 ){
         number = 30;
     }
     var numberElement = document.getElementById("goal");
     numberElement.innerHTML = number.toString();
-};
+}
 
 buildGameTable();
 
@@ -40,7 +39,7 @@ function setValueOfBubbles() {
         var randomNumber = parseInt(randomBetween(-50, 50));
         var bubbleDiv = bubbles[i];
         var bubbleP = bubbleDiv.firstChild;
-        bubbleP.innerHTML = randomNumber;
+        bubbleP.innerHTML = randomNumber.toString();
         if (randomNumber < -20 || randomNumber > 20) {
             bubbleP.classList.remove("expression-visible");
             bubbleDiv.classList.remove("bubble-visible");
@@ -83,7 +82,7 @@ document.addEventListener('click', function(event) {
     event = event || window.event;
     var target = event.target || event.srcElement;
     var elementOpacity = window.getComputedStyle(target, null).getPropertyValue('opacity');
-    var text = target.textContent || text.innerText;
+    var text = target.textContent;
     if (target.className ==! "expression expression-visible" && target.className ==! "bubble bubble-row bubble-visible") {
         return false;
     }
@@ -110,9 +109,7 @@ document.addEventListener('click', function(event) {
             outcome.style.visibility = "visible";
             var replay = document.getElementById("replay");
             replay.style.visibility = "visible";
-
         }
         counterElement.innerHTML = (newCounterValue).toString();
     }
-
 }, false);
